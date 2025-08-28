@@ -46,3 +46,21 @@ model = mlflow.pyfunc.load_model(f"runs:/{run_id}/model")
 
 For serving, any MLflow tooling such as `mlflow models serve` can be used to expose the registered model as a REST API.
 
+
+## Running super-linter locally
+
+Developers can run the same checks locally using Docker:
+
+```bash
+docker run \
+  -e RUN_LOCAL=true \
+  -e VALIDATE_PYTHON=true \
+  -e VALIDATE_JAVA=true \
+  -e VALIDATE_JAVASCRIPT=true \
+  -e VALIDATE_SCALA=true \
+  -e VALIDATE_SQL=true \
+  -e VALIDATE_JSON=true \
+  -v "$PWD:/tmp/lint" \
+  ghcr.io/github/super-linter:slim-latest
+```
+
