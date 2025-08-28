@@ -97,6 +97,10 @@ jobs:
 
   imagesign:
     needs: [trivy-scan, sbom, trivy-fs-scan, prepare-matrix]
+    permissions:
+      contents: read
+      packages: write                 # required by the called workflow
+      id-token: write                 # required for OIDC (cosign keyless, etc.)
     strategy:
       matrix:
         include: ${{ fromJson(needs.prepare-matrix.outputs.matrix) }}

@@ -30,7 +30,7 @@ from mlflow.models.signature import infer_signature
 # Configuration
 # ------------------------------------------------------------------------------------
 #CSV_PATH = os.getenv("CSV_PATH", "s3://oil/COMBINED_updated.csv")
-CSV_PATH = os.getenv("CSV_PATH", "Data/COMBINED_updated.csv")
+CSV_PATH = os.getenv("CSV_PATH", "Data\COMBINED_updated.csv")
 EXPERIMENT_NAME = os.getenv("MLFLOW_EXPERIMENT", "WTI-Forecasting")
 PREDICTION_HORIZON = int(os.getenv("PRED_H", "1"))
 LAGS = tuple(int(x) for x in os.getenv("LAGS", "1,4,20").split(","))
